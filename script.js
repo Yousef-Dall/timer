@@ -76,7 +76,7 @@ function timer() {
     }
 
 
-    time.textContent = `${hours} h  ${minutes} m ${seconds} s `
+    time.innerHTML = `${hours} <span>  h  </span>  ${minutes} <span> m </span> ${seconds} <span> s </span> `
     
 }
 let mss = 0
