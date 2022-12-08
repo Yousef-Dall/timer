@@ -57,7 +57,6 @@ let stpbtn = document.querySelector("#stop")
 let rstbtn = document.querySelector("#reset")
 let milli = document.querySelector(".ms")
 
-
 let xtime = 0
 let interval = null
 function timer() {
@@ -74,26 +73,7 @@ function timer() {
     if (seconds < 10) {
         seconds = "0" + seconds
     }
-
-
     time.innerHTML = `${hours} <span>  h  </span>  ${minutes} <span> m </span> ${seconds} <span> s </span> `
-    
-}
-let mss = 0
-function ms() {
-    if (mss < 100) {
-        mss++
-    }else if(mss == 100){
-        mss = 0
-    }
-    // console.log(mss);
-    milli.textContent = `${mss}`
-}
-function msss() {
-    if (interval) {
-        return
-    }
-    msint = setInterval(ms, 10);
 }
 
 function counter() {
@@ -103,5 +83,28 @@ function counter() {
     interval = setInterval(timer, 1000)
 }
 
+let mss = 0
+let msinterval = null
 
 
+function ms() {
+    if (mss < 100) {
+        mss++
+    }else if(mss == 100){
+        mss = 0
+    }
+    milli.textContent = `${mss}`
+}
+function msss() {
+    if (msinterval) {
+        return
+    }
+    msinterval = setInterval(ms, 10);
+}
+
+function stop() {
+    clearInterval(interval)
+    clearInterval(msinterval)
+    interval = null;
+    msinterval = null;
+}
