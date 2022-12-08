@@ -108,3 +108,12 @@ function stop() {
     interval = null;
     msinterval = null;
 }
+
+function reset() {
+    stop()
+    xtime = 0
+    mss = 0
+    time.innerHTML = `00 <span>h </span>00 <span>m </span>00 <span>s</span>`
+    milli.textContent = `00`
+
+}
