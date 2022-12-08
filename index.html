@@ -9,15 +9,20 @@
   </head>
   <body>
     <div class="timer">
-      <!-- <p onclick="myFun()">timer</p>
-      <label for=""></label>
-      <div><input type="text" name="" id="" maxlength="10" /></div>
-      <input
-        type="number"
-        pattern="/^-?\d+\.?\d*$/"
-        onKeyPress="if(this.value.length==6) return false;"
-        class="inp"
-      /> -->
+      <p id="t" onclick=" myFun()">timer</p>
+      <div class="input-container">
+        <input
+          type="number"
+          onKeyPress="if(this.value.length==6) return false;"
+          class="inp"
+        />
+        <span id="time-markers"></span>
+      </div>
+      <div class="butts">
+        <button id="start-timer">START</button>
+        <button id="stop-timer">STOP</button>
+        <button id="reset-timer">RESET</button>
+      </div>
     </div>
     <div class="stopwatch">
       <p id="sw">STOPWATCh</p>

@@ -1,56 +1,82 @@
-// let inp = document.getElementsByClassName("inp")
-// function myFun() {
-//     let x = inp[0].value
-//     console.log(x);
-//         let y = String(x)
-//     if (y.length == 1){
-//         secs = Number(y)
-//         mins = 0
-//         hrs = 0
-//     }else if(y.length == 2){
-//         secs = Number(y)
-//         mins = 0
-//         hrs = 0
-//     } else if(y.length == 3 ){
-//         mins = Number(y[0])
-//         secs = Number(y[1] + y[2])
-//     }
-    
-//     else if (y.length == 4) {
-//         mins = Number(y[0] + y[1])
-//         secs = Number(y[2] + y[3])
-//         hrs = 0
-//     }else if(y.length == 5){
-//         hrs = Number(y[0])
-//         mins = Number(y[1] + y[2])
-//         secs = Number(y[3] + y[4])
-
-//     }
-
-//     else if (y.length == 6) {
-//         hrs = Number(y[0] + y[1])
-//         mins = Number(y[2] + y[3])
-//         secs = Number(y[4] + y[5])
-//     }
-
-//     if(secs >= 60){
-//         mins += 1
-//         secs -= 60
-
-//     }
-//     if(mins >= 60){
-//         hrs += 1
-//         mins -= 60
-
-//     }
-//     console.log("s : " + secs);
-//     console.log("m : " + mins);
-//     console.log("h : " + hrs);
-//     console.log(typeof(secs));
-//     console.log(typeof(mins));
-//     console.log(typeof(hrs));
-
+let inp = document.getElementsByClassName("inp")
+let result = document.querySelector("#time-markers")
+// function show() {
+//     result.classList.toggle("show")
 // }
+
+let secs;
+let hrs;
+let mins;
+function myFun() {
+    let x = inp[0].value
+    console.log(x);
+        let y = String(x)
+    if (y.length == 1){
+        secs = Number(y)
+        mins = 0
+        hrs = 0
+    }else if(y.length == 2){
+        secs = Number(y)
+        mins = 0
+        hrs = 0
+    } else if(y.length == 3 ){
+        mins = Number(y[0])
+        secs = Number(y[1] + y[2])
+    }
+    
+    else if (y.length == 4) {
+        mins = Number(y[0] + y[1])
+        secs = Number(y[2] + y[3])
+        hrs = 0
+    }else if(y.length == 5){
+        hrs = Number(y[0])
+        mins = Number(y[1] + y[2])
+        secs = Number(y[3] + y[4])
+
+    }
+
+    else if (y.length == 6) {
+        hrs = Number(y[0] + y[1])
+        mins = Number(y[2] + y[3])
+        secs = Number(y[4] + y[5])
+    }
+
+    if(secs >= 60){
+        mins += 1
+        secs -= 60
+
+    }
+    if(mins >= 60){
+        hrs += 1
+        mins -= 60
+
+    }
+
+    // if (inp.style.display == "none") {
+    //     result.style.display = block
+    // }
+    // if (inp.style.display == "block") {
+    //     result.style.display = none
+    // }
+    // if (result.style.display == "none") {
+    //     result.style.display = block
+    // }
+    // if (result.style.display == "block") {
+    //     result.style.display = none
+    // }
+    result.innerText = `${hrs} h${mins} m ${secs} s `
+
+    
+    console.log("s : " + secs);
+    console.log("m : " + mins);
+    console.log("h : " + hrs);
+    console.log(typeof(secs));
+    console.log(typeof(mins));
+    console.log(typeof(hrs));
+
+    inp.value = 0
+
+}
 let time = document.querySelector(".time")
 let strbtn = document.querySelector("#start")
 let stpbtn = document.querySelector("#stop")
