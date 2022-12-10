@@ -4,69 +4,138 @@ let result = document.querySelector("#time-markers")
 let secs = 00;
 let hrs = 00;
 let mins = 05;
-function myFun() {
-    let x = inp[0].value
-    console.log(x);
-        let y = String(x)
-    if (y.length == 1){
-        secs = Number(y)
-        mins = 0
-        hrs = 0
-    }else if(y.length == 2){
-        secs = Number(y)
-        mins = 0
-        hrs = 0
-    } else if(y.length == 3 ){
-        mins = Number(y[0])
-        secs = Number(y[1] + y[2])
-        hrs = 0
-    }
+function hide() {
+    inp[0].style.display = "block"
+    result.style.display = "none"
+}
+
+inp[0].addEventListener("keyup", function(e) {
+    if (e.which == 13) {
+        inp[0].style.display = "none"
+        result.style.display = "block"
+        let x = inp[0].value
+        console.log(x);
+            let y = String(x)
+        if (y.length == 1){
+            secs = Number(y)
+            mins = 0
+            hrs = 0
+        }else if(y.length == 2){
+            secs = Number(y)
+            mins = 0
+            hrs = 0
+        } else if(y.length == 3 ){
+            mins = Number(y[0])
+            secs = Number(y[1] + y[2])
+            hrs = 0
+        }
+        
+        else if (y.length == 4) {
+            mins = Number(y[0] + y[1])
+            secs = Number(y[2] + y[3])
+            hrs = 0
+        }else if(y.length == 5){
+            hrs = Number(y[0])
+            mins = Number(y[1] + y[2])
+            secs = Number(y[3] + y[4])
     
-    else if (y.length == 4) {
-        mins = Number(y[0] + y[1])
-        secs = Number(y[2] + y[3])
-        hrs = 0
-    }else if(y.length == 5){
-        hrs = Number(y[0])
-        mins = Number(y[1] + y[2])
-        secs = Number(y[3] + y[4])
+        }
+    
+        else if (y.length == 6) {
+            hrs = Number(y[0] + y[1])
+            mins = Number(y[2] + y[3])
+            secs = Number(y[4] + y[5])
+        }
+        if(secs >= 60){
+            mins += 1
+            secs -= 60
+    
+        }
+        if(mins >= 60){
+            hrs += 1
+            mins -= 60
+    
+        }  
+        console.log(hrs);
+        result.style.fontsize = 60;
+        if (hrs < 10 && hrs.toString().length == 1) {
+            hrs = "0" + hrs
+        }
+    if (mins < 10 && mins.toString().length == 1) {
+            mins = "0" + mins
+        }
+    if (secs < 10 && secs.toString().length == 1) {
+            secs = "0" + secs
+        }
+        result.innerHTML = `${hrs} <span>  h  </span>  ${mins} <span> m </span> ${secs} <span> s </span> `
+        inp[0].innerHTML = "";
+        inp[0].style.display = "none"
+    
+       
+    }
+  })
+// function myFun() {
+//     let x = inp[0].value
+//     console.log(x);
+//         let y = String(x)
+//     if (y.length == 1){
+//         secs = Number(y)
+//         mins = 0
+//         hrs = 0
+//     }else if(y.length == 2){
+//         secs = Number(y)
+//         mins = 0
+//         hrs = 0
+//     } else if(y.length == 3 ){
+//         mins = Number(y[0])
+//         secs = Number(y[1] + y[2])
+//         hrs = 0
+//     }
+    
+//     else if (y.length == 4) {
+//         mins = Number(y[0] + y[1])
+//         secs = Number(y[2] + y[3])
+//         hrs = 0
+//     }else if(y.length == 5){
+//         hrs = Number(y[0])
+//         mins = Number(y[1] + y[2])
+//         secs = Number(y[3] + y[4])
 
-    }
+//     }
 
-    else if (y.length == 6) {
-        hrs = Number(y[0] + y[1])
-        mins = Number(y[2] + y[3])
-        secs = Number(y[4] + y[5])
-    }
-    if(secs >= 60){
-        mins += 1
-        secs -= 60
+//     else if (y.length == 6) {
+//         hrs = Number(y[0] + y[1])
+//         mins = Number(y[2] + y[3])
+//         secs = Number(y[4] + y[5])
+//     }
+//     if(secs >= 60){
+//         mins += 1
+//         secs -= 60
 
-    }
-    if(mins >= 60){
-        hrs += 1
-        mins -= 60
+//     }
+//     if(mins >= 60){
+//         hrs += 1
+//         mins -= 60
 
-    }  
-    console.log(hrs);
-    result.style.display = "block"
-    result.style.fontsize = 60;
-    if (hrs < 10 && hrs.toString().length == 1) {
-        hrs = "0" + hrs
-    }
-if (mins < 10 && mins.toString().length == 1) {
-        mins = "0" + mins
-    }
-if (secs < 10 && secs.toString().length == 1) {
-        secs = "0" + secs
-    }
-    result.innerHTML = `${hrs} <span>  h  </span>  ${mins} <span> m </span> ${secs} <span> s </span> `
-    inp[0].innerHTML = "";
-    inp[0].style.display = "none"
+//     }  
+//     console.log(hrs);
+//     result.style.fontsize = 60;
+//     if (hrs < 10 && hrs.toString().length == 1) {
+//         hrs = "0" + hrs
+//     }
+// if (mins < 10 && mins.toString().length == 1) {
+//         mins = "0" + mins
+//     }
+// if (secs < 10 && secs.toString().length == 1) {
+//         secs = "0" + secs
+//     }
+//     result.innerHTML = `${hrs} <span>  h  </span>  ${mins} <span> m </span> ${secs} <span> s </span> `
+//     inp[0].innerHTML = "";
+//     inp[0].style.display = "none"
 
    
     
-}
+// }
 let swinterval = null
 function downSw() {
     if (secs > 0) {
@@ -95,7 +164,7 @@ function downSw() {
 if (mins < 10 && mins.toString().length == 1) {
         mins = "0" + mins
     }
-if (secs < 10 && mins.toString().length == 1) {
+if (secs < 10 && secs.toString().length == 1) {
         secs = "0" + secs
     }
     result.innerHTML = `${hrs} <span>  h  </span>  ${mins} <span> m </span> ${secs} <span> s </span> `
