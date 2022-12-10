@@ -73,6 +73,7 @@ inp[0].addEventListener("keyup", function(e) {
     
        
     }
+    mssss()
   })
 // function myFun() {
 //     let x = inp[0].value
